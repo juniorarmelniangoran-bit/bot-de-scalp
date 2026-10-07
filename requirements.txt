@@ -1,0 +1,12 @@
+# Phase 1 - versions epinglees au 2026-10-06
+# Source : REFERENCES.md section 2 ; tzdata maj 2025.2 -> 2026.5 (pip index 2026-10-06)
+databento==0.87.0
+websockets==17.2
+httpx==0.28.1
+pyarrow==25.0.1
+polars==1.44.2
+numpy==2.5.3
+pytest==9.1.1
+python-dotenv==1.2.4
+tzdata==2026.5
+

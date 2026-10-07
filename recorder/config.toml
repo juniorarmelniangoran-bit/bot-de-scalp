@@ -1,0 +1,34 @@
+[recorder]
+dataset = "GLBX.MDP3"
+schema = "mbo"
+stype_in = "continuous"
+symbols = "6E.v.0"
+# out_dir : si BOT_DATA_DIR est defini, il prime (portable via pathlib, ~/bot-data par defaut)
+# Exemple : BOT_DATA_DIR (dossier hors projet) -> BOT_DATA_DIR/databento/mbo (via pathlib, portable)
+out_dir = "~/bot-data/databento/mbo"
+rollover_check_hour_utc = "10:00"
+min_free_bytes = 1000000000
+snapshot = true
+
+[capital]
+# Enregistreur Capital.com demo uniquement (Phase 1) — https://open-api.capital.com/
+# Flux prix = WebSocket (SEULE source haute frequence) — cite doc :
+#   wss://api-streaming-capital.backend-capital.com/connect
+#   destination marketData.subscribe / marketData.unsubscribe, max 40 epics
+#   payload {epics:["..."]} ; quote {epic, product, bid, bidQty, ofr, ofrQty, timestamp(ms)}
+#   ping WS: destination "ping" au moins toutes les 10 min (on ping a 300s = 5 min, marge)
+#   REST : POST /api/v1/session, DELETE /api/v1/session, GET /api/v1/ping, GET /api/v1/markets
+#          + GET /api/v1/markets?searchTerm= pour retrouver l'epic EUR/USD (ne suppose pas EURUSD)
+epic = "EURUSD"
+base_url = "https://demo-api-capital.backend-capital.com"
+poll_ms = 1000
+# out_dir : CAPITAL_DATA_DIR prime, sinon BOT_DATA_DIR/capital, sinon ~/bot-data/capital
+out_dir = "~/bot-data/capital"
+min_free_bytes = 1000000000
+session_refresh_s = 540
+rate_limit_per_second = 10
+ws_enabled = true
+ws_url = "wss://api-streaming-capital.backend-capital.com/connect"
+ws_max_epics = 40
+ws_ping_interval_s = 300
+

@@ -1,0 +1,43 @@
+# Donnees (Parquet, logs) - ignore par git
+data/
+
+# Secrets (le fichier pointe hors projet via BOT_ENV_FILE)
+.env
+*.env
+secrets/
+
+# Environnements virtuels (projet dans OneDrive : venv externe en C:\dev\venvs\bot-scalping)
+venv/
+.venv/
+env/
+ENV/
+C:\dev\venvs/
+
+# Caches Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Caches pytest / outils
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+
+# dump temporaire
+_dump.txt
+_dump*.txt
+
